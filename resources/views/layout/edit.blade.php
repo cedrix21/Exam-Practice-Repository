@@ -13,7 +13,7 @@
                 <div class="row justify-content-center align-items-start">
                     <!-- Left side: Form -->
                     <div class="col-md-6">
-                        <h2 class="mb-4">Create New Record</h2>
+                        <h2 class="mb-4">Update Student Record</h2>
 
                         @if(session('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">

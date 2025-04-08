@@ -35,4 +35,13 @@ class HomeController extends Controller
         Student::create($validated);
         return redirect()->route('student.create')->with('success', 'Student created successfully.');
     }
+
+    public function edit(Student $student)
+    {
+        
+        return view('layout.edit', [
+            'student' => Student::all(),
+            'editStudent'=>$student,
+        ]);
+    }
 }
