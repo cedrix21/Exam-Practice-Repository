@@ -3,7 +3,7 @@
         <div class="text-left">
             <h2 class="mb-4">Create New Record</h2>
 
-            <form action="{{ route('student.create') }}" method="POST">
+            <form action="{{ route('student.store') }}" method="post">
                 @csrf
 
                 <div class="mb-4">
@@ -44,6 +44,9 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <a class="btn btn-danger" href="{{ route('welcome') }}" role="button">
+                    <i class="ti ti-square-x fs-6"></i>Cancel
+                </a>
             </form>
         </div>
     </div>
