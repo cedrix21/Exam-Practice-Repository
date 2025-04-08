@@ -5,16 +5,22 @@ use App\Models\Student;
 
 use Illuminate\Http\Request;
 
+use function Laravel\Prompts\alert;
+
 class HomeController extends Controller
 {
     public function index()
     {
-        return view ('welcome');
+        
+        return view('welcome');
     }
 
     public function create()
     {
-        return view ('layout.create');
+        $studs = Student::all();
+        return view ('layout.create',[
+            'studs' => $studs,
+        ]);
     }
 
     public function store(Request $request)
@@ -27,7 +33,6 @@ class HomeController extends Controller
         ]);
 
         Student::create($validated);
-
-        return redirect()->route('welcome')->with('success', 'Student created Successfully');
+        return redirect()->route('student.create')->with('success', 'Student created successfully.');
     }
 }
