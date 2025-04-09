@@ -43,4 +43,21 @@ class HomeController extends Controller
             'editStudent'=>$student,
         ]);
     }
+
+    public function update(Request $request, Student $student)
+    {
+        $request->validate([
+            'name'=>'required',
+            'age'=>'required',
+            'address'=>'required',
+            'gender'=>'required',
+
+        ]);
+
+        $student->update($request->all());
+
+        return redirect()->route('student.edit',['student'=>$student->id]);
+
+
+    }
 }
