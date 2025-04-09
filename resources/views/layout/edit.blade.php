@@ -62,7 +62,7 @@
                             @enderror
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                         <a class="btn btn-danger" href="{{ route('welcome') }}" role="button">
                             Cancel
                         </a>
@@ -71,7 +71,12 @@
 
     <!-- Right side: Student list -->
     <div class="col-md-6">
-        <h4 class="mb-4">Student Records</h4>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h4 class="mb-0">Student Records</h4>
+            <a class="btn btn-primary" href="{{ route('student.create') }}" role="button">
+                Add Student
+            </a>
+        </div>
         @foreach ($student as $studs)
         <div class="mb-2 p-3 border rounded shadow-sm d-flex justify-content-between align-items-center">
             <div>

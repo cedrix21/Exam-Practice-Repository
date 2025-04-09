@@ -1,12 +1,6 @@
 <x-app>
-    <div class="container mt-5">
-        @if(isset($editStudent))
-        <form action="{{ route('student.update',['student'=>$editStudent->id]) }}" method="post">
-            @method('put')
-            @else
+    <div class="container mt-5">    
             <form action="{{ route('student.store') }}" method="post">
-
-                @endif
                 @csrf
 
 
@@ -25,7 +19,7 @@
                         <div class="mb-4">
                             <label for="name" class="form-label">Full Name</label>
                             <input style="width: 100%" type="text" name="name" class="form-control"
-                                value="{{ old('name', $editStudent->name ) }}" placeholder="Enter name" required>
+                                value="{{ old('name') }}" placeholder="Enter name" required>
                             @error('name')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
@@ -34,7 +28,7 @@
                         <div class="mb-4">
                             <label for="age" class="form-label">Age</label>
                             <input style="width: 100%" type="number" name="age" class="form-control"
-                                value="{{ old('age', $editStudent->age) }}" required>
+                                value="{{ old('age') }}" required>
                             @error('age')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
@@ -43,7 +37,7 @@
                         <div class="mb-4">
                             <label for="address" class="form-label">Address</label>
                             <input style="width: 100%" type="text" name="address" class="form-control"
-                                value="{{ old('address', $editStudent->address) }}" required>
+                                value="{{ old('address') }}" required>
                             @error('address')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
@@ -53,9 +47,9 @@
                             <label for="gender" class="form-label">Gender</label>
                             <select style="width: 100%" name="gender" class="form-control" required>
                                 <option value="">-- Select Gender --</option>
-                                <option value="male" {{ old('gender', $editStudent->gender)=='male' ? 'selected' : '' }}>Male</option>
-                                <option value="female" {{ old('gender', $editStudent->gender)=='female' ? 'selected' : '' }}>Female</option>
-                                <option value="other" {{ old('gender', $editStudent->gender)=='other' ? 'selected' : '' }}>Other</option>
+                                <option value="male" {{ old('gender')=='male' ? 'selected' : '' }}>Male</option>
+                                <option value="female" {{ old('gender')=='female' ? 'selected' : '' }}>Female</option>
+                                <option value="other" {{ old('gender')=='other' ? 'selected' : '' }}>Other</option>
                             </select>
                             @error('gender')
                             <div class="text-danger">{{ $message }}</div>
@@ -72,7 +66,7 @@
     <!-- Right side: Student list -->
     <div class="col-md-6">
         <h4 class="mb-4">Student Records</h4>
-        @foreach ($student as $studs)
+        @foreach ($studs as $studs)
         <div class="mb-2 p-3 border rounded shadow-sm d-flex justify-content-between align-items-center">
             <div>
                 <strong>{{ $studs->name }}</strong><br>

@@ -16,11 +16,10 @@ class HomeController extends Controller
     }
 
     public function create()
-    {
+    {  
         $studs = Student::all();
-        return view ('layout.create',[
-            'studs' => $studs,
-        ]);
+        return view ('layout.create',
+    ['studs'=> $studs]);
     }
 
     public function store(Request $request)
