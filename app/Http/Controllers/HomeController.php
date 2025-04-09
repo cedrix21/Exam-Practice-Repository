@@ -56,8 +56,17 @@ class HomeController extends Controller
 
         $student->update($request->all());
 
-        return redirect()->route('student.edit',['student'=>$student->id]);
+        return redirect()->route('student.edit',['student'=>$student->id])->with('success', 'Student updated successfully.');
 
 
+    }
+    public function destroy(Student $student)
+    {
+        $student->delete();
+        return redirect()->back();
+
+        // $student->update([
+        //     'status_id' => 2,
+        // ]);
     }
 }
